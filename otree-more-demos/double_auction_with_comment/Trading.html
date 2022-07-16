@@ -61,11 +61,11 @@ Trade
 
 
 <script>
-
-    let bids_table = document.getElementById('bids_table');
-    let asks_table = document.getElementById('asks_table');
-    let my_id = js_vars.id_in_group;
-    let news_div = document.getElementById('news');
+    //　以下、HTMLのタグを使って変数を作成
+    let bids_table = document.getElementById('bids_table'); // 買手のcurrent_offer一覧
+    let asks_table = document.getElementById('asks_table'); // 売手のcurrent_offer一覧
+    let my_id = js_vars.id_in_group; // サーバー上での識別id 
+    let news_div = document.getElementById('news'); // データ更新後、取引が成立していた（tableから消えた）場合に表示するメッセージ
     let is_buyer = js_vars.is_buyer;
     let btnOffer = document.getElementById('btn-offer');
     let my_offer = document.getElementById('my_offer');
