@@ -2,7 +2,6 @@ from otree.api import *
 import time
 import random
 
-from sqlalchemy import true
 
 
 doc = "Double auction market"
