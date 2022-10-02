@@ -57,15 +57,15 @@ Trade
 </div>
 
 <br><br>
-{{ include 'double_auction/chart.html' }}
+{{ include 'double_auction_with_comment/chart.html' }}
 
 
 <script>
-    //　以下、HTMLのタグを使って変数を作成
-    let bids_table = document.getElementById('bids_table'); // 買手のcurrent_offer一覧
-    let asks_table = document.getElementById('asks_table'); // 売手のcurrent_offer一覧
-    let my_id = js_vars.id_in_group; // サーバー上での識別id 
-    let news_div = document.getElementById('news'); // データ更新後、取引が成立していた（tableから消えた）場合に表示するメッセージ
+    // 以下、HTMLのタグを使って変数を作成
+    let bids_table = document.getElementById('bids_table');    // 買手のcurrent_offer一覧
+    let asks_table = document.getElementById('asks_table');    // 売手のcurrent_offer一覧
+    let my_id = js_vars.id_in_group;    // サーバー上での識別id 
+    let news_div = document.getElementById('news');    // データ更新後、取引が成立していた（tableから消えた）場合に表示するメッセージ
     let is_buyer = js_vars.is_buyer;
     let btnOffer = document.getElementById('btn-offer');
     let my_offer = document.getElementById('my_offer');
@@ -82,7 +82,7 @@ Trade
     }
 
     function liveRecv(data) {
-        console.log(data) //　受信したデータを表示
+        console.log(data)    // 受信したデータを表示
         // javascript destructuring assignment
         let {bids, asks, highcharts_series, num_items, current_offer, payoff, news} = data;
         console.log("なんかきた",news)
@@ -105,12 +105,12 @@ Trade
         redrawChart(highcharts_series);
     }
 
-    function sendOffer() { //データ(オファーの額)をDBに送信
+    function sendOffer() {    // データ(オファーの額)をDBに送信
         liveSend({'offer': my_offer.value})
     }
 
     my_offer.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") { //　Enterキーが押された場合に発火
+        if (event.key === "Enter") {    // Enterキーが押された場合に発火
             sendOffer();
         }
     });
